@@ -51,8 +51,8 @@ def after_set_name():
             break
                     
 
-    
-def team():
+# 设置队伍
+def handle_set_team():
     touch(Template(r"tpl1677990761162.png", record_pos=(0.398, 0.185), resolution=(1280, 720)))
     sleep(0.75)
     touch(Template(r"tpl1677990765335.png", record_pos=(-0.362, 0.034), resolution=(1280, 720)))
@@ -63,6 +63,7 @@ def team():
     sleep(0.75)
     touch(Template(r"tpl1677990776995.png", record_pos=(0.31, 0.194), resolution=(1280, 720)))
     sleep(0.75)
+
     while True:
         if exists(Template(r"tpl1677990790296.png", record_pos=(-0.254, 0.016), resolution=(1280, 720))):break
         
@@ -77,7 +78,8 @@ def team():
     touch(Template(r"tpl1677990803735.png", record_pos=(0.33, 0.231), resolution=(1280, 720)))
 
 
-def fight():
+# 处理第一场战斗
+def handle_first_battle():
     while True:
         if not exists(Template(r"tpl1677998079948.png", record_pos=(-0.222, -0.032), resolution=(1280, 720))):
             touch([15,15])
@@ -142,8 +144,8 @@ def fight():
     
 
         
-# 吃面包
-def grow_up():
+# 处理训练（吃面包）
+def handle_grow_up():
     while True:
         if not exists(Template(r"tpl1677998792138.png", record_pos=(-0.218, -0.034), resolution=(1280, 720))):
             touch([10,10])
@@ -199,8 +201,8 @@ def grow_up():
         break
         
     
-    
-def learn_skills():
+# 处理学习技能
+def handle_learn_skills():
     touch([10,10])
     sleep(0.75)
     touch(Template(r"tpl1677989057067.png", record_pos=(-0.346, 0.208), resolution=(1280, 720)))
@@ -232,15 +234,16 @@ def learn_skills():
     touch([10,10])
     
     
-def store():
-#     while True:
-#         if exists(Template(r"tpl1677999420039.png", record_pos=(0.187, -0.03), resolution=(1280, 720))):
-#             handle_click()
-#             sleep(0.75)
-#             continue
+# 处理查看商店
+def handle_view_store():
+    while True:
+        if exists(Template(r"tpl1677999420039.png", record_pos=(0.187, -0.03), resolution=(1280, 720))):
+            handle_click()
+            sleep(0.75)
+            continue
             
-#         touch(Template(r"tpl1677989190366.png", record_pos=(-0.341, 0.212), resolution=(1280, 720)))
-#         sleep(1)
+        touch(Template(r"tpl1677989190366.png", record_pos=(-0.341, 0.212), resolution=(1280, 720)))
+        sleep(1)
         handle_click()
         sleep(1)
         handle_click()
@@ -278,10 +281,11 @@ def store():
         sleep(0.75)
         touch(Template(r"tpl1677989301321.png", record_pos=(0.468, -0.245), resolution=(1280, 720)))
         sleep(0.75)
-#         break
+        break
     
     
-def task():
+# 处理查看任务
+def handle_view_task():
     touch([10,10])
     sleep(0.75)
     touch(Template(r"tpl1677989341586.png", record_pos=(0.467, -0.136), resolution=(1280, 720)))
@@ -300,7 +304,8 @@ def task():
     sleep(0.75)
     
     
-def account():
+# 处理查看账户
+def handle_view_account():
     touch(Template(r"tpl1677989401356.png", record_pos=(0.407, 0.228), resolution=(1280, 720)))
     sleep(0.75)
     touch(Template(r"tpl1677989406178.png", record_pos=(0.461, -0.249), resolution=(1280, 720)))
@@ -315,7 +320,8 @@ def account():
     sleep(2)
     
     
-def get_hero():
+# 处理获取英雄
+def handle_get_hero():
     touch(Template(r"tpl1677989470258.png", record_pos=(0.217, -0.243), resolution=(1280, 720)))
     sleep(0.75)
     touch(Template(r"tpl1677989473546.png", record_pos=(0.463, -0.237), resolution=(1280, 720)))

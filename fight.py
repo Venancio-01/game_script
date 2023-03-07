@@ -2,11 +2,6 @@
 __author__ = "liqingshan"
 
 from airtest.core.api import *
-from airtest.cli.parser import cli_setup
-
-# generate html report
-# from airtest.report.report import simple_report
-# simple_report(__file__, logpath=True)
 
 leader_eliminate_3 = Template(r"tpl1677984928248.png", record_pos=(0.299, 0.231), resolution=(1280, 720))
 leader_eliminate_1 = Template(r"tpl1677985221033.png", record_pos=(0.402, 0.232), resolution=(1280, 720))

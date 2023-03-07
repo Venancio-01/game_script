@@ -2,12 +2,8 @@
 __author__ = "liqingshan"
 
 from airtest.core.api import *
-from airtest.cli.parser import cli_setup
-import random
 
-# generate html report
-# from airtest.report.report import simple_report
-# simple_report(__file__, logpath=True)
+import random
 
 start_game_text = Template(
     r"tpl1677980228353.png", record_pos=(0.0, 0.219), resolution=(1280, 720)
@@ -30,15 +26,19 @@ account_icon = Template(
 confirm_btn = Template(
     r"tpl1677979425371.png", record_pos=(0.091, 0.147), resolution=(1280, 720)
 )
-point_icon_1 = Template(
-    r"tpl1677984279265.png", record_pos=(0.272, 0.201), resolution=(1280, 720)
-)
-point_icon_2 = Template(
-    r"tpl1677983974150.png", record_pos=(0.289, 0.202), resolution=(1280, 720)
-)
+
+# 随机等待
+def handle_sleep(type="short"):
+    map = {
+        "short": [0.3, 0.8],
+        "middle": [0.8, 1.5],
+        "long": [1.5, 2.5],
+    }
+    sleep(random.uniform(*map[type]))
 
 
-def wait_appear_and_click(img, fn=lambda image: touch(image)):
+# 等待图片出现并执行操作
+def wait_appear_and_operate(img, fn=lambda image: touch(image)):
     while True:
         if exists(img):
             fn()
@@ -59,12 +59,13 @@ def handle_click():
 
 # 打开菜单
 def open_menu():
-    if not exists(menu_icon):
-        while not exists(menu_icon):
+    while True:
+        if exists(menu_icon):
+            touch(menu_icon)
+            break
+        else:
             keyevent("BACK")
-            sleep(0.5)
-    touch(menu_icon)
-    sleep(0.5)
+            sleep(0.3)
 
 
 def handle_skip():

@@ -4,40 +4,37 @@ __author__ = "liqingshan"
 # import threading
 
 from airtest.core.api import *
-
-from utils import handle_skip,open_menu,handle_fllow
-
-from account import handle_login,set_character_name,delete_character
-
-from fight import handle_fight,use_goddess_skills,handle_levelup,handle_back_town
-
-from record import on_enter_game,fight,team,grow_up,learn_skills,store,task,account,get_hero,after_set_name
+from utils import *
+from account import *
+from record import *
 
 auto_setup(__file__)
 
-
-pkg_name = 'com.nhnet.SKQUEST'
-
-
-# set_character_name()
+# 应用包名
+pkg_name = "com.nhnet.SKQUEST"
 
 
-def delete():
+# 打开菜单，删除角色
+def handle_delete_character():
     open_menu()
     delete_character()
-    
 
-# handle_login()
-# on_enter_game()
-# set_character_name()
-# after_set_name()
-# team()
-# fight()
-# grow_up()
-# learn_skills()
-store()
-task()
-account()
-get_hero()
-# delete()
+
+def main():
+    handle_login()
+    on_enter_game()
+    set_character_name()
+    after_set_name()
+    handle_set_team()
+    handle_first_battle()
+    handle_grow_up()
+    handle_learn_skills()
+    handle_view_store()
+    handle_view_task()
+    handle_view_account()
+    handle_get_hero()
+    # handle_delete_character()
+
+
+main()
 
